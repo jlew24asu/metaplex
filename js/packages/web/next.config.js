@@ -1,22 +1,22 @@
-module.exports = {
-  async headers() {
-    return [
-      {
-        // matching all API routes
-        source: "/api/:path*",
-        headers: [
-          { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" },
-          { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-          { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
-        ]
-      }
-    ]
-  }
-};
 
-const withPlugins = require('next-compose-plugins');
-const withLess = require('next-with-less');
+// next.config.js
+export async function headers() {
+  return [
+    {
+      // matching all API routes
+      source: "/api/:path*",
+      headers: [
+        { key: "Access-Control-Allow-Credentials", value: "true" },
+        { key: "Access-Control-Allow-Origin", value: "*" },
+        { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+        { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+      ]
+    }
+  ];
+}
+
+import withPlugins from 'next-compose-plugins';
+import withLess from 'next-with-less';
 
 const assetPrefix = process.env.ASSET_PREFIX || '';
 
@@ -38,7 +38,7 @@ const plugins = [
   ],
 ];
 
-module.exports = withPlugins(plugins, {
+export default withPlugins(plugins, {
   assetPrefix,
   reactStrictMode: true,
   eslint: {
