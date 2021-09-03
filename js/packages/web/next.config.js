@@ -1,8 +1,3 @@
-const withPlugins = require('next-compose-plugins');
-const withLess = require('next-with-less');
-
-const assetPrefix = process.env.ASSET_PREFIX || '';
-
 module.exports = {
   async headers() {
     return [
@@ -19,6 +14,11 @@ module.exports = {
     ]
   }
 };
+
+const withPlugins = require('next-compose-plugins');
+const withLess = require('next-with-less');
+
+const assetPrefix = process.env.ASSET_PREFIX || '';
 
 const plugins = [
   [
