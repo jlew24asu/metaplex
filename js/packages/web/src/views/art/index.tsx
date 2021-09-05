@@ -20,7 +20,7 @@ import { MetaAvatar } from '../../components/MetaAvatar';
 import { sendSignMetadata } from '../../actions/sendSignMetadata';
 import { ViewOn } from '../../components/ViewOn';
 import { ArtType } from '../../types';
-<<<<<<< HEAD
+import { ArtMinting } from '../../components/ArtMinting';
 import { TwitterShareButton,
   InstapaperShareButton,
   EmailShareButton,
@@ -33,20 +33,15 @@ import { TwitterShareButton,
     EmailIcon,
     FacebookIcon
   } from "react-share";
-=======
-import { ArtMinting } from '../../components/ArtMinting';
->>>>>>> b22e212e74436553bf5341ed3c05039fca5e929d
+
 
 const { Content } = Layout;
 
 export const ArtView = () => {
   const { id } = useParams<{ id: string }>();
   const wallet = useWallet();
-<<<<<<< HEAD
-  let shareUrl = window.location.href;
-=======
   const [remountArtMinting, setRemountArtMinting] = useState(0);
->>>>>>> b22e212e74436553bf5341ed3c05039fca5e929d
+  let shareUrl = window.location.href;
 
   const connection = useConnection();
   const art = useArt(id);
