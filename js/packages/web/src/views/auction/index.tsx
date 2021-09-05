@@ -34,6 +34,20 @@ import useWindowDimensions from '../../utils/layout';
 import { CheckOutlined } from '@ant-design/icons';
 import { useMemo } from 'react';
 import { ArtType } from '../../types';
+import {
+  TwitterShareButton,
+  InstapaperShareButton,
+  EmailShareButton,
+  FacebookShareButton,
+  TelegramShareButton,
+  TelegramIcon,
+} from "react-share";
+import {
+  TwitterIcon,
+  InstapaperIcon,
+  EmailIcon,
+  FacebookIcon
+} from "react-share";
 
 export const AuctionItem = ({
   item,
@@ -75,6 +89,7 @@ export const AuctionItem = ({
 };
 
 export const AuctionView = () => {
+  let shareUrl = window.location.href;
   const { id } = useParams<{ id: string }>();
   const { env } = useConnectionConfig();
   const auction = useAuction(id);
@@ -225,7 +240,24 @@ export const AuctionView = () => {
               </div>
             </Col>
           </Row>
-
+          <Row>
+              <Col>
+              <h6 style={{ marginTop: 5 }}>Share</h6>
+              <TwitterShareButton
+               url={shareUrl}>
+                  <TwitterIcon size={32} round={true} />
+              </TwitterShareButton>
+              <span style={{marginLeft: 5}}></span>
+              <FacebookShareButton
+               url={shareUrl}>
+                  <FacebookIcon size={32} round={true} />
+              </FacebookShareButton>
+              <span style={{marginLeft: 5}}></span>
+              <TelegramShareButton  url={shareUrl}>
+                   <TelegramIcon size={32} round={true}></TelegramIcon>
+              </TelegramShareButton>
+              </Col>
+            </Row>
           {!auction && <Skeleton paragraph={{ rows: 6 }} />}
           {auction && <AuctionCard auctionView={auction} />}
           <AuctionBids auctionView={auction} />

@@ -6,6 +6,9 @@ import { ArtistCard } from '../../components/ArtistCard';
 import { useMeta } from '../../contexts';
 
 const { Content } = Layout;
+const styleObj = {
+    fontSize:14
+}
 
 export const AboutUsView = () => {
   const styles = {
@@ -54,7 +57,7 @@ export const AboutUsView = () => {
     <Layout style={{ margin: 0, marginTop: 30 }}>
       <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
         <h2 style={{ width: '100%', marginTop: 10 }}>About ChicagoPhotoShop</h2>
-            <span> My name is Jeff. I spent years as a Chicago cityscape photographer and now jumping into the world of NFTs. I've added some motion to a few of my favorite photos and minted them on the Solana blockchain. If I can sell printed photos online and in a gallery, then why not on the blockchain, where it will live forever :) </span>
+            <span style={styleObj}> My name is Jeff. I spent years as a Chicago cityscape photographer and now jumping into the world of NFTs. I've added some motion to a few of my favorite photos and minted them on the Solana blockchain. If I can sell printed photos online and in a gallery, then why not on the blockchain, where it will live forever :) </span>
       </Content>
       <Row>
               <Col span={7}>

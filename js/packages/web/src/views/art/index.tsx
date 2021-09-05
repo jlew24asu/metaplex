@@ -10,12 +10,25 @@ import { MetaAvatar } from '../../components/MetaAvatar';
 import { sendSignMetadata } from '../../actions/sendSignMetadata';
 import { ViewOn } from './../../components/ViewOn';
 import { ArtType } from '../../types';
+import { TwitterShareButton,
+  InstapaperShareButton,
+  EmailShareButton,
+  FacebookShareButton,
+  TelegramShareButton,
+  TelegramIcon,} from "react-share";
+  import {
+    TwitterIcon,
+    InstapaperIcon,
+    EmailIcon,
+    FacebookIcon
+  } from "react-share";
 
 const { Content } = Layout;
 
 export const ArtView = () => {
   const { id } = useParams<{ id: string }>();
   const wallet = useWallet();
+  let shareUrl = window.location.href;
 
   const connection = useConnection();
   const art = useArt(id);
@@ -155,7 +168,30 @@ export const ArtView = () => {
                 <div className="art-edition">{badge}</div>
               </Col>
             </Row>
-
+            <Row>
+              <Col>
+              <h6 style={{ marginTop: 5 }}>Share</h6>
+              <TwitterShareButton
+               url={shareUrl}>
+                  <TwitterIcon size={32} round={true} />
+              </TwitterShareButton>
+              <span style={{marginLeft: 5}}></span>
+              <FacebookShareButton
+               url={shareUrl}>
+                  <FacebookIcon size={32} round={true} />
+              </FacebookShareButton>
+              <span style={{marginLeft: 5}}></span>
+              <TelegramShareButton  url={shareUrl}>
+                   <TelegramIcon size={32} round={true}></TelegramIcon>
+              </TelegramShareButton>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <h6 style={{ marginTop: 5 }}>Edition</h6>
+                <div className="art-edition">{badge}</div>
+              </Col>
+            </Row>
             {/* <Button
                   onClick={async () => {
                     if(!art.mint) {
