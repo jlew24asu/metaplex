@@ -186,24 +186,20 @@ export const ArtView = () => {
               <h6 style={{ marginTop: 5 }}>Share</h6>
               <TwitterShareButton
                url={shareUrl}>
-                  <TwitterIcon size={32} round={true} />
+                  <TwitterIcon size={35} round={true} />
               </TwitterShareButton>
               <span style={{marginLeft: 5}}></span>
               <FacebookShareButton
                url={shareUrl}>
-                  <FacebookIcon size={32} round={true} />
+                  <FacebookIcon size={35} round={true} />
               </FacebookShareButton>
               <span style={{marginLeft: 5}}></span>
               <TelegramShareButton  url={shareUrl}>
-                   <TelegramIcon size={32} round={true}></TelegramIcon>
+                   <TelegramIcon size={35} round={true}></TelegramIcon>
               </TelegramShareButton>
               </Col>
             </Row>
             <Row>
-              <Col>
-                <h6 style={{ marginTop: 5 }}>Edition</h6>
-                <div className="art-edition">{badge}</div>
-              </Col>
             </Row>
             {/* <Button
                   onClick={async () => {
